@@ -1,8 +1,43 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald|Sigmar+One');
 
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .spooky-text {
   color: #f15523;
   font-family: 'Sigmar One', cursive;
   font-size: 2em;
   text-align: center;
+  text-transform: uppercase;
+}
+
+.spooky-input {
+  color: #1d1f20;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3em;
+  padding: .3em;
+  text-align: center;
+  width: 11em;
+}
+
+.spooky-ghost {
+  padding-top: 5em;
+  width: 10em;
+}
+
+.spooky-error {
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  font-size: 1.5em;
+  padding-top: 1em;
+}
+
+@media (min-width: 400px) {
+  .spooky-text {
+    font-size: 5em;
+  }
 }
