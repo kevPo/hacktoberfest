@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import errorImage from './ghost.svg';
 import './App.css';
 
 class UserNameInput extends Component {
-  render() {
-    
-    function handleKeyPress(event) {
-      // event.stopPropagation();
-      // event.preventDefault();
-      alert('hit');
-      if(event.key == 'Enter'){
-        alert('enter press here! ')
-      }
+  handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.props.submitName(e.target.value);
     }
+  }
 
-    return (
-      <input className="spooky-input" type="text" onKeyPress={this.handleKeyPress}/>
-    );
+  render() {
+    return <input type="text" className="spooky-input" onKeyPress={this.handleKeyPress} />
   }
 }
 
@@ -37,15 +30,20 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: 'There was an error'
+      userName: '',
+      error: ''
     };
+  }
+
+  handleUserSubmission(userName) {
+    console.log('enter clicked ' + userName);
   }
 
   render() {
     return (
       <div className="container">
         <h1 className="spooky-text">Hacktoberfest</h1>
-        <UserNameInput />
+        <UserNameInput submitName={this.handleUserSubmission}/>
         <SpookyError error={this.state.error} />
       </div>
     );
