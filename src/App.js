@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import errorImage from './ghost.svg';
 import './App.css';
 
@@ -19,7 +20,7 @@ function SpookyError(props) {
     return null;
   else
     return (
-      <div>
+      <div class="container">
         <img className="spooky-ghost" src={errorImage} alt="Error Logo"/>
         <div className="spooky-error">{props.error}</div>
       </div>
@@ -29,14 +30,30 @@ function SpookyError(props) {
 class App extends Component {
   constructor(props) {
     super(props);
+    this.handleUserSubmission = this.handleUserSubmission.bind(this);
     this.state = {
       userName: '',
       error: ''
     };
   }
 
+  showError(userName) {
+    console.error(userName);
+    this.setState({
+      userName: userName,
+      error: `${userName} NOT FOUND`
+    });
+  }
+
   handleUserSubmission(userName) {
-    console.log('enter clicked ' + userName);
+    var self = this;
+    axios.get('https://api.github.com/users/' + userName)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        self.showError(userName);
+      });
   }
 
   render() {
