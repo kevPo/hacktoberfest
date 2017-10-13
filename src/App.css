@@ -41,3 +41,36 @@
     font-size: 5em;
   }
 }
+
+.spooky-number {
+  color: #D544F9;
+  font-family: 'Sigmar One', cursive;
+  font-size: 10em;
+}
+
+.spooky-message {
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  font-size: 1.5em;
+  padding-top: 1em;
+}
+
+.spooky-green {
+  color: #23F181;
+}
+
+.spooky-red {
+  color: #F9183D;
+}
+
+.spooky-purple {
+  color: #D544F9;
+}
+
+.spooky-yellow {
+  color: #FFD732;
+}
+
+.spooky-blue {
+  color: #405AF9;
+}
