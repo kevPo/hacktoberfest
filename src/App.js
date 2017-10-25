@@ -10,46 +10,34 @@ class UserNameInput extends Component {
     }
   }
 
+  handleBlur = (e) => {
+    this.props.submitName(e.target.value);
+  }
+
   render() {
-    return <input type="text" className="spooky-input" onKeyPress={this.handleKeyPress} />
+    return <input type="text" placeholder="Enter GitHub Username" className="spooky-input" onBlur={this.handleBlur} onKeyPress={this.handleKeyPress} />
   }
 }
 
 function SpookyResults(props) {
   if (props.numberOfPrs === '') {
-    console.log(props);
     return null;
   }
   else {
-    var infoMessage = '';
-    var colorClass = '';
+    var contributionMessage = '';
 
-    if (props.numberOfPrs === 0) {
-        colorClass = 'spooky-red';
-        infoMessage = 'THAT IS TERRIFYING';
-    }
-    else if (props.numberOfPrs === 1) {
-        colorClass = 'spooky-purple';
-        infoMessage = 'DON\'T STOP NOW!';
-    }
-    else if (props.numberOfPrs === 2) {
-        colorClass = 'spooky-yellow';
-        infoMessage = 'HALF WAY THERE!';
-    }
-    else if (props.numberOfPrs === 3) {
-        colorClass = 'spooky-blue';
-        infoMessage = 'ONLY ONE MORE TO GO!';
-    }
-    else if (props.numberOfPrs > 3) {
-        colorClass = 'spooky-green';
-        infoMessage = 'WELL DONE!';
-    }
+    if (props.numberOfPrs === 1)
+      contributionMessage = `${props.numberOfPrs} contribution`;
+    else
+      contributionMessage = `${props.numberOfPrs} contributions`;    
 
     return (
       <div className="container">
-        {/* <img src={props.avatarUrl} /> */}
-        <div className="spooky-number">{props.numberOfPrs}</div>
-  			<div className="spooky-message">{infoMessage}</div>	
+        <div className="avatar">
+          <img src={props.avatarUrl} />
+          <div className="overlay"></div>
+        </div>
+        <div className="spooky-number">{contributionMessage}</div>
       </div>
     );
   }
@@ -105,7 +93,7 @@ class App extends Component {
   showError(userName) {
     this.setState({
       userName: userName,
-      error: `${userName} NOT FOUND`,
+      error: `${userName} COULD NOT BE FOUND`,
       numberOfPrs: ''
     });
   }
@@ -123,7 +111,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container fadein">
         <h1 className="spooky-text">Hacktoberfest</h1>
         <UserNameInput submitName={this.handleUserSubmission}/>
         <SpookyResults avatarUrl={this.state.avatarUrl} numberOfPrs={this.state.numberOfPrs} />

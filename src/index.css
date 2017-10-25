@@ -1,6 +1,34 @@
 body {
+  animation: 1s ease-out 0s 1 fadeIn;
   background-color: #1d1f20;
   font-size: 100%;
   margin: 0;
   padding: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 375px) {
+  body {
+    font-size: 110%;
+  }
+}
+
+@media (min-width: 380px) {
+  body {
+    font-size: 120%;
+  }
+}
+
+@media (min-width: 700px) {
+  body {
+    font-size: 200%;
+  }
 }
