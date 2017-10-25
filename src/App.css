@@ -7,70 +7,117 @@
   width: 100%;
 }
 
+.avatar {
+  margin-top: 50px;
+  position: relative;
+  height: 200px;
+  width: 200px;
+}
+
+.avatar img {
+	border-radius: 5px;  
+  filter: grayscale(100%) contrast(400%);
+  height: 200px;
+  width: 200px;
+}
+
+.overlay {
+	background: rgba(255, 74, 0,0.7);
+	border-radius: 5px;
+	bottom: 0;
+  height: 100%;
+  left: 0;
+	position: absolute;
+  right: 0;
+	top: 0;
+	width: 100%;
+}
+
 .spooky-text {
   color: #f15523;
   font-family: 'Sigmar One', cursive;
-  font-size: 2em;
+  font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 0;
   text-align: center;
   text-transform: uppercase;
 }
 
 .spooky-input {
-  color: #1d1f20;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid #f15523;
+  color: white;
   font-family: 'Oswald', sans-serif;
-  font-size: 1.3em;
+  font-size: 1.4em;
   padding: .3em;
   text-align: center;
   width: 11em;
 }
 
+.spooky-input:focus {
+  outline: none;
+}
+
 .spooky-ghost {
-  padding-top: 5em;
-  width: 10em;
-}
-
-.spooky-error {
-  font-family: 'Oswald', sans-serif;
-  color: white;
-  font-size: 1.5em;
-  padding-top: 1em;
-}
-
-@media (min-width: 400px) {
-  .spooky-text {
-    font-size: 5em;
-  }
+  padding-top: 50px;
+  height: 200px;
 }
 
 .spooky-number {
-  color: #D544F9;
-  font-family: 'Sigmar One', cursive;
-  font-size: 10em;
-}
-
-.spooky-message {
-  font-family: 'Oswald', sans-serif;
   color: white;
-  font-size: 1.5em;
+  font-family: 'Sigmar One', cursive;
+  font-size: 1.4em;
+  margin-top: 25px;
+}
+
+.spooky-error {
+  color: #f15523;
+  font-family: 'Sigmar One', cursive;
+  font-size: 1.4em;
   padding-top: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  width: 75%;
 }
 
-.spooky-green {
-  color: #23F181;
+@media (min-width: 300px) {
+  #root>.container {
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    margin-top: -20px;
+  }
 }
 
-.spooky-red {
-  color: #F9183D;
+@media (min-width: 380px) {
+  #root>.container {
+    margin-top: -70px;
+  }
 }
 
-.spooky-purple {
-  color: #D544F9;
+@media (min-width: 700px) {
+  .spooky-text {
+    font-size: 2em;
+  }
 }
 
-.spooky-yellow {
-  color: #FFD732;
+@media (min-width: 1000px) {
+  #root>.container {
+    height: auto;
+    margin-top: 0;
+  }
+  .spooky-text {
+    font-size: 2.5em;
+  }
 }
 
-.spooky-blue {
-  color: #405AF9;
+@media (min-width: 1100px) {
+  #root>.container {
+    height: auto;
+    margin-top: 0;
+  }
+  .spooky-text {
+    font-size: 4em;
+  }
 }
