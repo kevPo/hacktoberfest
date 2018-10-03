@@ -80,7 +80,7 @@ class App extends Component {
 
   findIssues(user) {
     var self = this;
-    axios.get(`https://api.github.com/search/issues?q=author:${user.login}+created:2017-10-01..2017-11-01`)
+    axios.get(`https://api.github.com/search/issues?q=author:${user.login}+created:2018-10-01..2018-11-01`)
       .then(function (results) {
         var numberOfPullRequests = self.getNumberOfPullRequests(results.data.items);
         self.setState({numberOfPrs: numberOfPullRequests, error: '', avatarUrl: user.avatar_url})
